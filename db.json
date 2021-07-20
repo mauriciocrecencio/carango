@@ -1,0 +1,218 @@
+{
+  "brands": [
+    {
+      "id": 7,
+      "name": "Audi"
+    },
+    {
+      "id": 9,
+      "name": "BMW"
+    },
+    {
+      "id": 17,
+      "name": "Chrysler"
+    },
+    {
+      "id": 18,
+      "name": "Citroën"
+    },
+    {
+      "id": 27,
+      "name": "Fiat"
+    },
+    {
+      "id": 29,
+      "name": "Ford"
+    },
+    {
+      "id": 33,
+      "name": "GM - Chevrolet"
+    },
+    {
+      "id": 35,
+      "name": "Gurgel"
+    },
+    {
+      "id": 38,
+      "name": "Honda"
+    },
+    {
+      "id": 39,
+      "name": "Hyundai"
+    },
+    {
+      "id": 42,
+      "name": "JAC"
+    },
+    {
+      "id": 44,
+      "name": "Jeep"
+    },
+    {
+      "id": 47,
+      "name": "Kia Motors"
+    },
+    {
+      "id": 48,
+      "name": "Lada"
+    },
+    {
+      "id": 50,
+      "name": "Land Rover"
+    },
+    {
+      "id": 52,
+      "name": "LIFAN"
+    },
+    {
+      "id": 60,
+      "name": "Mercedes-Benz"
+    },
+    {
+      "id": 63,
+      "name": "MINI"
+    },
+    {
+      "id": 64,
+      "name": "Mitsubishi"
+    },
+    {
+      "id": 66,
+      "name": "Nissan"
+    },
+    {
+      "id": 67,
+      "name": "Peugeot"
+    },
+    {
+      "id": 70,
+      "name": "Porsche"
+    },
+    {
+      "id": 73,
+      "name": "Renault"
+    },
+    {
+      "id": 81,
+      "name": "SSANGYONG"
+    },
+    {
+      "id": 82,
+      "name": "Subaru"
+    },
+    {
+      "id": 83,
+      "name": "Suzuki"
+    },
+    {
+      "id": 85,
+      "name": "Toyota"
+    },
+    {
+      "id": 86,
+      "name": "Troller"
+    },
+    {
+      "id": 87,
+      "name": "Volvo"
+    },
+    {
+      "id": 88,
+      "name": "VW - VolksWagen"
+    }
+  ],
+  "vehicles": [
+    {
+      "brandId": "29",
+      "model": "Ford Ecosport 2.0 NEW",
+      "year": "2021",
+      "value": 80000,
+      "id": 1
+    },
+    {
+      "id": 2,
+      "model": "Ka 1.0 8V/1.0 8V ST Flex 3p",
+      "year": 2013,
+      "value": 21381,
+      "brandId": 29
+    },
+    {
+      "id": 3,
+      "model": "AGILE LT 1.4 MPFI 8V FlexPower 5p",
+      "year": 2010,
+      "value": 25104,
+      "brandId": 33
+    },
+    {
+      "id": 4,
+      "model": "Celta 1.0/Super/N.Piq.1.0 MPFi VHC 8V 3p",
+      "year": 2005,
+      "value": 13390,
+      "brandId": 33
+    },
+    {
+      "id": 5,
+      "model": "Fusca",
+      "year": 1985,
+      "value": 11147,
+      "brandId": 88
+    },
+    {
+      "id": 6,
+      "model": "Palio Celebration 1.0 Fire Flex 8V 4p",
+      "year": 2007,
+      "value": 18126,
+      "brandId": 27
+    },
+    {
+      "id": 7,
+      "model": "Uno Mille 1.0/ i.e./Electronic/Brio 2p",
+      "year": 1997,
+      "value": 7758,
+      "brandId": 27
+    },
+    {
+      "id": 8,
+      "model": "Strada Endurance 1.4 Flex 8V CS Plus",
+      "year": 2021,
+      "value": 71415,
+      "brandId": 27
+    },
+    {
+      "brandId": 29,
+      "model": "EcoSport FREESTYLE 1.5 12V Flex 5p Aut. Alterado",
+      "year": "2019",
+      "value": 6000,
+      "id": 9
+    },
+    {
+      "brandId": 29,
+      "model": "EcoSport FREESTYLE 1.5 12V Flex 5p Automático",
+      "year": "",
+      "value": 76800,
+      "id": 10
+    }
+  ],
+  "dashboard": [
+    {
+      "total": 98216,
+      "brandName": "Ford",
+      "quantityVehicles": 2
+    },
+    {
+      "total": 38494,
+      "brandName": "GM - Chevrolet",
+      "quantityVehicles": 2
+    },
+    {
+      "total": 11147,
+      "brandName": "VW - VolksWagen",
+      "quantityVehicles": 1
+    },
+    {
+      "total": 97299,
+      "brandName": "Fiat",
+      "quantityVehicles": 3
+    }
+  ]
+}
