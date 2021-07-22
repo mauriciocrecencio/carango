@@ -1,40 +1,42 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Home from "../pages/Home";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+// import Home from "../pages/Home";
 import Brands from "../pages/Brands";
 import Vehicles from "../pages/Vehicles";
-import VehiclesSummary from "../components/VehiclesSummary";
+import VehiclesSummary from "../pages/Dashboard";
 import { useContext } from "react";
 import { LoadingContext } from "../context/LoadingContext";
-import Loading from "../components/Loading";
 import Login from "../pages/Login";
 import ProtectedRoute from "./ProtectedRoute";
+import AxiosInterceptor from "../services/AxiosInterceptor";
+import Register from "../pages/Register";
+import Home from "../pages/Home";
+import Loading from "../components/Loading";
 
 const Routes = () => {
   const { isLoading } = useContext(LoadingContext);
-  if (isLoading) return <Loading />;
+
   return (
     <Router>
-      <Switch>
-        <Route exact path="/login">
-          <Login />
-        </Route>
-        <ProtectedRoute exact path="/home" component={Home}></ProtectedRoute>
-        <Route exact path="/brands">
-          <Home>
-            <Brands />
-          </Home>
-        </Route>
-        <Route exact path="/vehicles">
-          <Home>
-            <Vehicles />
-          </Home>
-        </Route>
-        <Route exact path="/dashboard">
-          <Home>
-            <VehiclesSummary />
-          </Home>
-        </Route>
-      </Switch>
+      <AxiosInterceptor>
+        <>
+          {isLoading && <Loading />}
+          <Switch>
+            <Route exact path="/">
+              <Redirect to="/login" />
+            </Route>
+            <Route exact path="/login">
+              <Login />
+            </Route>
+            <Route exact path="/register">
+              <Register />
+            </Route>
+            <ProtectedRoute exact path="/home" component={Home}></ProtectedRoute>
+            <ProtectedRoute exact path="/brands" component={Brands}></ProtectedRoute>
+            <ProtectedRoute exact path="/vehicles" component={Vehicles} />
+            <ProtectedRoute exact path="/dashboard" component={VehiclesSummary} />
+          </Switch>
+        </>
+      </AxiosInterceptor>
     </Router>
   );
 };

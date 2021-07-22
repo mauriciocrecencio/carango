@@ -13,9 +13,9 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { APIAuth } from "../../services/apiService";
-import { useContext } from "react";
-import { AuthenticationContext } from "../../context/AuthenticationContext";
 import { useHistory } from "react-router-dom";
+import { useContext } from "react";
+import { LoadingContext } from "../../context/LoadingContext";
 
 function Copyright() {
   return (
@@ -32,7 +32,7 @@ function Copyright() {
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    marginTop: theme.spacing(8),
+    paddingTop: theme.spacing(8),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -52,20 +52,22 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Login() {
   const [user, setUser] = useState({ email: "", password: "" });
-  const { setIsAuth } = useContext(AuthenticationContext);
-  const history = useHistory();
+  const [errors, setErrors] = useState({
+    email: { error: false, message: "Email incorreto" },
+    password: { error: false, message: "Senha incorreta" },
+  });
+
+  const { setIsLoading } = useContext(LoadingContext);
 
   const requestLogin = async () => {
-    console.log(user);
     await APIAuth.post("/usuario/login", user)
-      .then((res) => {
-        console.log(res);
-        if (res.status === 201) {
-          console.log(res.status);
-          setIsAuth(true);
-        }
-      })
-      .then(() => history.push("/home"));
+      .then(() => setIsLoading(false))
+      .catch((err) =>
+        setErrors({
+          email: { error: true, message: "Email incorreto" },
+          password: { error: true, message: "Senha incorreta" },
+        })
+      );
   };
 
   const classes = useStyles();
@@ -78,7 +80,7 @@ export default function Login() {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign in
+          Entrar
         </Typography>
         <form className={classes.form}>
           <TextField
@@ -92,6 +94,8 @@ export default function Login() {
             autoComplete="email"
             onChange={(e) => setUser({ ...user, email: e.target.value })}
             autoFocus
+            helperText={errors.email.error && errors.email.message}
+            error={errors.email.error}
           />
           <TextField
             variant="outlined"
@@ -104,6 +108,8 @@ export default function Login() {
             id="password"
             autoComplete="current-password"
             onChange={(e) => setUser({ ...user, password: e.target.value })}
+            helperText={errors.password.error && errors.password.message}
+            error={errors.password.error}
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}

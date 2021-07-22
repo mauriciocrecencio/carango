@@ -4,6 +4,7 @@ import EditVehicleModal from "../../components/VehiclesModal";
 import { BrandsContext } from "../../context/BrandsContext";
 import { VehiclesContext } from "../../context/VehiclesContext";
 import { IVehicle } from "../../interfaces/VehicleInterface";
+import ContainerPages from "../ContainerPages";
 import VehiclesTable from "./VehiclesTable";
 
 const Vehicles = () => {
@@ -46,40 +47,42 @@ const Vehicles = () => {
   };
 
   return (
-    <>
-      <Button
-        onClick={() => setIsCreatingNewVehicle(true)}
-        variant="contained"
-        color="primary"
-        size="large"
-        style={{ margin: "20px 60px 40px" }}
-      >
-        Criar novo Veículo
-      </Button>
-      <VehiclesTable
-        editVehicle={editVehicle}
-        isCreatingNewVehicle={isCreatingNewVehicle}
-        setIsCreatingNewVehicle={setIsCreatingNewVehicle}
-        removeVehicle={removeVehicle}
-        vehicles={vehicles}
-        brands={brands}
-      />
-      <Modal open={isEdit}>
-        <EditVehicleModal
-          title={`Editando veículo: ${selectedVehicle?.model}`}
-          onConfirm={updateVehicle}
-          vehicle={selectedVehicle}
-          setIsEdit={setIsEdit}
+    <ContainerPages>
+      <>
+        <Button
+          onClick={() => setIsCreatingNewVehicle(true)}
+          variant="contained"
+          color="primary"
+          size="large"
+          style={{ margin: "20px 60px 40px" }}
+        >
+          Criar novo Veículo
+        </Button>
+        <VehiclesTable
+          editVehicle={editVehicle}
+          isCreatingNewVehicle={isCreatingNewVehicle}
+          setIsCreatingNewVehicle={setIsCreatingNewVehicle}
+          removeVehicle={removeVehicle}
+          vehicles={vehicles}
+          brands={brands}
         />
-      </Modal>
-      <Modal open={isCreatingNewVehicle}>
-        <EditVehicleModal
-          title="Criar novo veículo"
-          onConfirm={createNewVehicle}
-          setIsEdit={setIsCreatingNewVehicle}
-        />
-      </Modal>
-    </>
+        <Modal open={isEdit}>
+          <EditVehicleModal
+            title={`Editando veículo: ${selectedVehicle?.model}`}
+            onConfirm={updateVehicle}
+            vehicle={selectedVehicle}
+            setIsEdit={setIsEdit}
+          />
+        </Modal>
+        <Modal open={isCreatingNewVehicle}>
+          <EditVehicleModal
+            title="Criar novo veículo"
+            onConfirm={createNewVehicle}
+            setIsEdit={setIsCreatingNewVehicle}
+          />
+        </Modal>
+      </>
+    </ContainerPages>
   );
 };
 

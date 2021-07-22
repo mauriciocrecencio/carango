@@ -1,9 +1,10 @@
 import { CircularProgress } from "@material-ui/core";
+import { ContainerLoading } from "./styles";
 
 const Loading = () => (
-  <div style={{ display: "flex", height: "100vh", justifyContent: "center", alignItems: "center" }}>
+  <ContainerLoading>
     <CircularProgress color="primary" size={140} />
-  </div>
+  </ContainerLoading>
 );
 
 export default Loading;

@@ -14,6 +14,7 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
 import ModalEditBrand from "../../components/BrandsModal";
 import { IBrand } from "../../interfaces/BrandInterface";
+import ContainerPages from "../ContainerPages";
 
 const Brands = () => {
   const { brands, setBrands } = useContext(BrandsContext);
@@ -52,7 +53,7 @@ const Brands = () => {
   };
 
   return (
-    <>
+    <ContainerPages>
       <Button
         onClick={() => setIsCreatingNewBrand(true)}
         variant="contained"
@@ -106,7 +107,7 @@ const Brands = () => {
           />
         </Modal>
       </List>
-    </>
+    </ContainerPages>
   );
 };
 export default Brands;

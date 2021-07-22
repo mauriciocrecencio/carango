@@ -7,9 +7,7 @@ import AxiosInterceptor from "./services/AxiosInterceptor";
 function App() {
   return (
     <ProviderContexts>
-      <AxiosInterceptor>
-        <Routes />
-      </AxiosInterceptor>
+      <Routes />
     </ProviderContexts>
   );
 }

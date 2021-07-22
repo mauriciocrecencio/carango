@@ -7,6 +7,7 @@ export const LoadingContext = createContext<{
 
 export const LoadingProvider: React.FC = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
+
   return (
     <LoadingContext.Provider value={{ isLoading, setIsLoading }}>
       {children}

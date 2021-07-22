@@ -3,7 +3,8 @@ import { useContext, useEffect, useState } from "react";
 import { BrandsContext } from "../../context/BrandsContext";
 import { VehiclesContext } from "../../context/VehiclesContext";
 import { ISummary } from "../../interfaces/SummaryInterface";
-import TinyBarChart from "../TinyBarChart";
+import TinyBarChart from "../../components/TinyBarChart";
+import ContainerPages from "../ContainerPages";
 
 const VehiclesSummary = () => {
   const { vehicles } = useContext(VehiclesContext);
@@ -44,7 +45,7 @@ const VehiclesSummary = () => {
   console.log(summaries);
 
   return (
-    <>
+    <ContainerPages>
       <TinyBarChart summaries={summaries} getTotalValue={getTotalValue} />
       <Grid container spacing={4} style={{ marginTop: 20, borderTop: "1px solid #8884D8" }}>
         {summaries &&
@@ -64,7 +65,7 @@ const VehiclesSummary = () => {
             </Grid>
           ))}
       </Grid>
-    </>
+    </ContainerPages>
   );
 };
 export default VehiclesSummary;

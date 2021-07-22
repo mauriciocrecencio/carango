@@ -6,10 +6,15 @@ const SideNav = () => {
 
   const handlePage = (page: string) => history.push(page);
 
+  const logout = () => {
+    localStorage.clear();
+    handlePage("/login");
+  };
+
   const links = [
     {
-      name: "Entrar",
-      action: () => {},
+      name: "Início",
+      action: () => handlePage("/home"),
 
       variant: "contained",
       color: "primary",
@@ -44,7 +49,7 @@ const SideNav = () => {
     },
     {
       name: "Sair",
-      action: () => {},
+      action: () => logout(),
 
       variant: "contained",
       color: "secondary",
