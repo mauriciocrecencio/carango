@@ -7,5 +7,5 @@ export const API = axios.create({
 });
 
 export const APIAuth = axios.create({
-  baseURL: "https://auth-user-jwt.herokuapp.com/",
+  baseURL: "https://auth-users.onrender.com/",
 });

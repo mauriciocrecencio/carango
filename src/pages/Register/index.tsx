@@ -124,9 +124,9 @@ export default function Register() {
 
   const requestRegister = async () => {
     if (hasErrors()) return;
-    const { password, email } = userData;
+    const { password, email, name } = userData;
 
-    await APIAuth.post("/usuario", { email, password })
+    await APIAuth.post("/usuario", { name,email, password })
       .then((res) => console.log(res))
       .catch((err) =>
         setErrors({ ...errors, email: { error: true, message: "Este e-mail já está cadastrado" } })

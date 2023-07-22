@@ -52,10 +52,10 @@ const AxiosInterceptor = ({ children }: { children: JSX.Element }) => {
         localStorage.setItem("isAuthenticated", "true");
         localStorage.setItem("user", JSON.stringify(config.data));
 
-        if (config.statusText === "OK" && config.config.url === "/usuario") {
+        if (config.status === 200 && config.config.url === "/usuario") {
           history.push("/login");
         }
-        if (config.statusText === "Created" && config.config.url === "/usuario/login") {
+        if (config.status === 201 && config.config.url === "/usuario/login") {
           history.push("/home");
         }
         return config;
